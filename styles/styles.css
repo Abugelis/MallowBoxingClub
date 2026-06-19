@@ -11,19 +11,12 @@
 }
 
 html {
-  overflow: hidden;
-}
-body {
-  overflow: hidden;
-}
-
-html {
     scroll-behavior: smooth;
     background-color: #FAF7F2;
 }
 
 body {
-    min-height: 100vh;
+    min-height: 100svh;
 }
 
 /* ---------------------------- ELEMENTS ------------------------------- */
@@ -395,7 +388,7 @@ body.open-nav {
     right: 0;
 
     width: 70%;
-    height: 100vh;
+    height: 100svh;
 
     display: flex;
     flex-direction: column;
