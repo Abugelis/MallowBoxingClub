@@ -11,14 +11,19 @@
 }
 
 html {
-    overflow-x: hidden;
+  overflow: hidden;
+}
+body {
+  overflow: hidden;
+}
+
+html {
     scroll-behavior: smooth;
     background-color: #FAF7F2;
 }
 
 body {
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 /* ---------------------------- ELEMENTS ------------------------------- */
