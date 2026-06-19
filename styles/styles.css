@@ -16,7 +16,7 @@ html {
 }
 
 body {
-    min-height: 100svh;
+    min-height: 100tgr7487y81vh;
 }
 
 /* ---------------------------- ELEMENTS ------------------------------- */
@@ -376,6 +376,12 @@ img {
 
 /* ================= NAV STATE ================= */
 body.open-nav {
+    position: fixed;
+    width: 100%;
+}
+
+html.no-scroll,
+body.no-scroll {
     overflow: hidden;
 }
 
@@ -388,7 +394,7 @@ body.open-nav {
     right: 0;
 
     width: 70%;
-    height: 100svh;
+    height: 100dvh;
 
     display: flex;
     flex-direction: column;
@@ -508,7 +514,7 @@ body.open-nav {
     display: flex;
     position: relative;
     width: 100%;
-    min-height: 100svh;
+    min-height: 100dvh;
     overflow: hidden;
     padding: 1rem;
     align-items: center;

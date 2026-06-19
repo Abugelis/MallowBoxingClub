@@ -8,17 +8,43 @@ const currentPage = window.location.pathname.split("/").pop();
 const faqItems = document.querySelectorAll('.faq-item');
 
 
+/* -------------------------------------------------------
+   SAFETY: prevent scroll lock getting stuck on load
+-------------------------------------------------------- */
+window.addEventListener("load", () => {
+    // ensure nav is never accidentally left open on load
+    nav.classList.remove("open-nav");
+    document.body.classList.remove("open-nav");
+    btn?.setAttribute("aria-expanded", "false");
+
+    // extra safety after first paint (Safari fix)
+    requestAnimationFrame(() => {
+        document.body.classList.remove("open-nav");
+    });
+});
+
+
+/* ---------------- NAV OPEN / CLOSE ---------------- */
+
 function openNav() {
     nav.classList.add("open-nav");
     btn.setAttribute("aria-expanded", "true");
-    document.body.classList.add("open-nav");
+
+    // slight delay improves Safari stability during layout shift
+    requestAnimationFrame(() => {
+        document.body.classList.add("open-nav");
+    });
 }
 
 function closeNav() {
     nav.classList.remove("open-nav");
     btn.setAttribute("aria-expanded", "false");
+
     document.body.classList.remove("open-nav");
 }
+
+
+/* ---------------- TOGGLE BUTTON ---------------- */
 
 btn.addEventListener("click", () => {
     const isOpen = nav.classList.contains("open-nav");
@@ -31,10 +57,12 @@ btn.addEventListener("click", () => {
 });
 
 
+/* ---------------- CLOSE EVENTS ---------------- */
+
 // Close nav if overlay is clicked
 overlay.addEventListener("click", closeNav);
 
-// Close nav with "ESC" button if it's opened
+// Close nav with ESC key
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && nav.classList.contains("open-nav")) {
         closeNav();
@@ -47,8 +75,8 @@ navLinks.forEach(link => {
 });
 
 
+/* ---------------- ACTIVE LINK ---------------- */
 
-// Get the current page and add .active class to it. Making that menu item underlined
 navLinks.forEach(link => {
     const linkPage = link.getAttribute("href").split("/").pop();
 
@@ -87,6 +115,7 @@ faqItems.forEach(item => {
         }
     });
 });
+
 
 /* ---------------- FADE IN ANIMATION ---------------- */
 
